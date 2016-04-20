@@ -23,8 +23,12 @@ public class MainActivity extends AppCompatActivity {
 
     @OnClick(R.id.startFAB)
     void onFABClick() {
-        App.userModel.name = nameEditText.getText().toString();
-        AXT.at(this).startCommonIntent().activityFromClass(FindPeerActivity.class);
+        if (nameEditText.getText().toString().isEmpty()) {
+            nameEditText.setError("cannot be empty");
+        } else {
+            App.userModel.name = nameEditText.getText().toString();
+            AXT.at(this).startCommonIntent().activityFromClass(FindPeerActivity.class);
+        }
     }
 
     List<AvatarController> moodAvatars = new ArrayList<>();
