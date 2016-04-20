@@ -1,9 +1,13 @@
 package org.ligi.blueblab.ui;
 
+import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.VectorDrawable;
+import android.support.graphics.drawable.VectorDrawableCompat;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.graphics.drawable.DrawableCompat;
 import android.support.v7.widget.AppCompatImageView;
+import android.support.v7.widget.TintContextWrapper;
 import android.view.View;
 import android.widget.TextView;
 import butterknife.Bind;
@@ -51,7 +55,7 @@ public class AvatarController {
 
     public void setFaceColor(int color) {
         this.color = color;
-        final VectorDrawable drawable = (VectorDrawable) circleBackground.getDrawable();
+        final Drawable drawable = circleBackground.getDrawable();
         final Drawable mutate = drawable.mutate();
         DrawableCompat.setTint(mutate, color);
         circleBackground.setImageDrawable(mutate);
