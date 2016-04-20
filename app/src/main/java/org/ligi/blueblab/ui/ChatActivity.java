@@ -1,6 +1,7 @@
 package org.ligi.blueblab.ui;
 
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -32,8 +33,16 @@ public class ChatActivity extends AppCompatActivity {
 
     @OnClick(R.id.sendFAB)
     void onSendClick() {
-        messageList.add(new Message(App.userModel.toUser(), messageText.getText().toString()));
-        messageList.add(new Message(App.chatPartner, messageText.getText().toString().toUpperCase()));
+        final String message = messageText.getText().toString();
+        messageList.add(new Message(App.userModel.toUser(), message));
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                messageList.add(new Message(App.chatPartner, message.toUpperCase()));
+                adapter.notifyDataSetChanged();
+            }
+        },2000);
+
         adapter.notifyDataSetChanged();
         messageText.setText("");
     }
