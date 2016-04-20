@@ -2,6 +2,7 @@ package org.ligi.blueblab;
 
 import android.app.Application;
 import android.support.v4.content.ContextCompat;
+import org.ligi.blueblab.model.UserModel;
 
 public class App extends Application {
     @Override

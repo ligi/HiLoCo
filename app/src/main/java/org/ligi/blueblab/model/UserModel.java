@@ -1,4 +1,6 @@
-package org.ligi.blueblab;
+package org.ligi.blueblab.model;
+
+import org.ligi.blueblab.Mood;
 
 public class UserModel {
     public String name;
