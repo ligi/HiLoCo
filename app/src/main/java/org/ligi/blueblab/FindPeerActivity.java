@@ -63,7 +63,7 @@ public class FindPeerActivity extends AppCompatActivity {
         }
 
         myAvatar.rootView.setVisibility(View.VISIBLE);
-        myAvatar.setName(App.userModel.name);
+        myAvatar.setName(App.userModel.getName());
     }
 
     @Override

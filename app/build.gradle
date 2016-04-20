@@ -31,6 +31,8 @@ dependencies {
     compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
     compile "org.jetbrains.kotlin:kotlin-runtime:$kotlin_version"
 
+    compile 'com.chibatching:kotpref:1.2.0'
+
     compile 'com.jakewharton:butterknife:7.0.1'
     compile 'org.ligi:AXT:0.37'
 }

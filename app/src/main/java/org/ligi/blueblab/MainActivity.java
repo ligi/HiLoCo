@@ -2,6 +2,7 @@ package org.ligi.blueblab;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -12,6 +13,7 @@ import butterknife.OnClick;
 import java.util.ArrayList;
 import java.util.List;
 import org.ligi.axt.AXT;
+import org.ligi.axt.simplifications.SimpleTextWatcher;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -26,7 +28,6 @@ public class MainActivity extends AppCompatActivity {
         if (nameEditText.getText().toString().isEmpty()) {
             nameEditText.setError("cannot be empty");
         } else {
-            App.userModel.name = nameEditText.getText().toString();
             AXT.at(this).startCommonIntent().activityFromClass(FindPeerActivity.class);
         }
     }
@@ -65,7 +66,7 @@ public class MainActivity extends AppCompatActivity {
                     avatarView.setOnTouchListener(new View.OnTouchListener() {
                         @Override
                         public boolean onTouch(final View v, final MotionEvent event) {
-                            App.userModel.mood = mood;
+                            App.userModel.setMood(mood);
                             refresh();
                             return true;
                         }
@@ -78,7 +79,7 @@ public class MainActivity extends AppCompatActivity {
                     avatarView.setOnTouchListener(new View.OnTouchListener() {
                         @Override
                         public boolean onTouch(final View v, final MotionEvent event) {
-                            App.userModel.color = color;
+                            App.userModel.setColor(color);
                             refresh();
                             return true;
                         }
@@ -91,24 +92,37 @@ public class MainActivity extends AppCompatActivity {
                 avatarGrid.addView(avatarView);
             }
         }
+
+        nameEditText.setText(App.userModel.getName());
+
+        nameEditText.addTextChangedListener(new SimpleTextWatcher() {
+            @Override
+            public void onTextChanged(final CharSequence s, final int start, final int before, final int count) {
+                App.userModel.setName(nameEditText.getText().toString());
+                super.onTextChanged(s, start, before, count);
+            }
+        });
         refresh();
+
     }
 
     public void refresh() {
         for (final AvatarController moodAvatar : moodAvatars) {
-            final boolean hasFace = moodAvatar.mood == App.userModel.mood;
+            final boolean hasFace = moodAvatar.mood == App.userModel.getMood();
             if (hasFace) {
                 moodAvatar.setHasFace(true);
-                moodAvatar.setFaceColor(App.userModel.color);
+                moodAvatar.setFaceColor(App.userModel.getColor());
             } else {
                 moodAvatar.setHasFace(false);
             }
         }
 
         for (final AvatarController colorAvatar : colorAvatars) {
-            Mood mood = (colorAvatar.color == App.userModel.color) ? App.userModel.mood:null;
+            Mood mood = (colorAvatar.color == App.userModel.getColor()) ? App.userModel.getMood() : null;
             colorAvatar.setMood(mood);
         }
+
+
     }
 
 
