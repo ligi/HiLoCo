@@ -14,37 +14,20 @@ import org.ligi.blueblab.model.User;
 
 public class FakeTransporter implements Transporter {
 
-    private final Context context;
-    private final Random random = new Random();
-    private String[] names;
+    private final EntropySource entropySource;
 
-    public FakeTransporter(final Context context) {
-        this.context = context;
-
-        final InputStream inputStream = context.getResources().openRawResource(R.raw.names);
-
-        try {
-            final String s = AXT.at(inputStream).readToString();
-            names = s.split("\r");
-        } catch (IOException e) {
-
-        }
+    public FakeTransporter(final Context context, final EntropySource entropySource) {
+        this.entropySource = entropySource;
     }
 
     @Override
     public List<User> getVisibleUsers() {
         final ArrayList<User> users = new ArrayList<>();
-        for(int i=0;i<random.nextInt(4);i++) {
-            users.add(new User(getRandomName(), getRandomMood(), UUID.randomUUID().toString(), random.nextInt(Integer.MAX_VALUE)));
+        for(int i=0;i<entropySource.getRandom().nextInt(4);i++) {
+            users.add(new User(entropySource.getRandomName(), entropySource.getRandomMood(), UUID.randomUUID().toString(), entropySource.getRandom().nextInt(Integer.MAX_VALUE)));
         }
         return users;
     }
 
-    private String getRandomName() {
-        return names[random.nextInt(names.length)];
-    }
 
-    private Mood getRandomMood() {
-        return Mood.ALL_MOODS[random.nextInt(5)];
-    }
 }

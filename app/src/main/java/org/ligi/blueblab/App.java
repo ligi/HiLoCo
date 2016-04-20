@@ -21,11 +21,14 @@ public class App extends Application {
             userModel.setId(UUID.randomUUID().toString());
         }
 
-        transporter = new FakeTransporter(this);
+        entropySource = new EntropySource(this);
+        transporter = new FakeTransporter(this,entropySource);
+
     }
 
     public static UserModel userModel;
 
     public static Transporter transporter;
 
+    public static EntropySource entropySource;
 }

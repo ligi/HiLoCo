@@ -9,6 +9,7 @@ import android.widget.EditText;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import butterknife.OnTouch;
 import java.util.ArrayList;
 import java.util.List;
 import org.ligi.axt.AXT;
@@ -32,6 +33,12 @@ public class UserEditActivity extends AppCompatActivity {
         } else {
             AXT.at(this).startCommonIntent().activityFromClass(FindPeerActivity.class);
         }
+    }
+
+    @OnTouch(R.id.diceName)
+    boolean onNameDice(){
+        nameEditText.setText(App.entropySource.getRandomName());
+        return true;
     }
 
     List<AvatarController> moodAvatars = new ArrayList<>();

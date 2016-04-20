@@ -2,33 +2,47 @@
 <RelativeLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" xmlns:grid="http://schemas.android.com/apk/res-auto"
+        xmlns:grid="http://schemas.android.com/apk/res-auto"
+        xmlns:app="http://schemas.android.com/apk/res-auto" android:layout_width="match_parent" android:layout_height="match_parent"
 
         android:focusable="true"
         android:focusableInTouchMode="true"
         tools:context=".ui.UserEditActivity">
 
-
-    <android.support.design.widget.TextInputLayout
-            android:padding="8dp"
-            android:id="@+id/nameInputTextInput"
-            android:layout_width="match_parent"
+    <LinearLayout
+            android:id="@+id/nameInputContainer"
+            android:layout_centerHorizontal="true"
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content">
 
-        <EditText
-                android:id="@+id/nameInputEditText"
-                android:hint="enter your name"
-                android:singleLine="true"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+        <android.support.design.widget.TextInputLayout
+                android:padding="8dp"
+                android:id="@+id/nameInputTextInput"
+                android:layout_width="256dp"
 
-    </android.support.design.widget.TextInputLayout>
+                android:layout_height="wrap_content">
 
+            <EditText
+                    android:id="@+id/nameInputEditText"
+                    android:hint="enter your name"
+                    android:singleLine="true"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.v7.widget.AppCompatImageView
+                android:id="@+id/diceName"
+                android:layout_toRightOf="@id/nameInputTextInput"
+                android:layout_gravity="center_vertical"
+                app:srcCompat="@drawable/ic_places_casino"
+                android:layout_width="48dp" android:layout_height="48dp"/>
+    </LinearLayout>
 
     <org.ligi.blueblab.ui.SquareGridByWidthLayout
             android:id="@+id/avatarGrid"
-            android:layout_below="@id/nameInputTextInput"
+            android:layout_below="@id/nameInputContainer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             grid:rowCount="3"
