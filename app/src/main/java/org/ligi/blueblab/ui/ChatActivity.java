@@ -16,6 +16,7 @@ import butterknife.OnClick;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
+import org.ligi.blueblab.App;
 import org.ligi.blueblab.R;
 import org.ligi.blueblab.model.Message;
 import org.ligi.blueblab.model.Mood;
@@ -32,7 +33,7 @@ public class ChatActivity extends AppCompatActivity {
 
     @OnClick(R.id.sendFAB)
     void onSendClick() {
-        messageList.add(new Message(UUID.randomUUID().toString(),messageText.getText().toString()));
+        messageList.add(new Message(App.userModel.toUser(),messageText.getText().toString()));
         adapter.notifyDataSetChanged();
         messageText.setText("");
     }

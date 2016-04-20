@@ -21,4 +21,8 @@ class UserModel : KotprefModel() {
         moodString = mood.toString()
     }
 
+    fun toUser() : User{
+        return User(id,name,getMood() ,color)
+    }
+
 }

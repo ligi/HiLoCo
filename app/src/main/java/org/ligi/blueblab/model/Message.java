@@ -2,11 +2,11 @@ package org.ligi.blueblab.model;
 
 public class Message {
 
-    public final String userID;
+    public final User user;
     public final String message;
 
-    public Message(final String userID, final String message) {
-        this.userID = userID;
+    public Message(final User user, final String message) {
+        this.user = user;
         this.message = message;
     }
 }

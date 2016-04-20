@@ -17,6 +17,7 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 import org.ligi.blueblab.R;
 import org.ligi.blueblab.model.Mood;
+import org.ligi.blueblab.model.User;
 
 public class AvatarController {
     final View rootView;
@@ -68,5 +69,11 @@ public class AvatarController {
         final Drawable mutate = drawable.mutate();
         DrawableCompat.setTint(mutate, color);
         circleBackground.setImageDrawable(mutate);
+    }
+
+    public void setFromUser(User user) {
+        setMood(user.getMood());
+        setFaceColor(user.getColor());
+        setName(user.getName());
     }
 }
