@@ -6,9 +6,12 @@ import android.graphics.drawable.VectorDrawable;
 import android.support.graphics.drawable.VectorDrawableCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.graphics.drawable.DrawableCompat;
+import android.support.v7.widget.ActionBarOverlayLayout;
 import android.support.v7.widget.AppCompatImageView;
 import android.support.v7.widget.TintContextWrapper;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -27,6 +30,9 @@ public class AvatarController {
     @Bind(R.id.nameText)
     TextView nameText;
 
+    @Bind(R.id.avatarContainer)
+    ViewGroup viewGroup;
+
     public Mood mood = Mood.NEUTRAL;
     public int color;
 
@@ -35,6 +41,9 @@ public class AvatarController {
         ButterKnife.bind(this, rootView);
     }
 
+    public void setSize() {
+        viewGroup.setLayoutParams(new LinearLayout.LayoutParams(100,100));
+    }
     public void setName(String name) {
         nameText.setText(name);
     }

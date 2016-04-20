@@ -5,6 +5,8 @@
         xmlns:grid="http://schemas.android.com/apk/res-auto"
         xmlns:app="http://schemas.android.com/apk/res-auto"
 
+        android:id="@+id/avatarContainer"
+
         grid:layout_columnWeight="1"
         grid:layout_rowWeight="1"
         grid:layout_gravity="fill"
@@ -29,7 +31,6 @@
 
     <TextView
             android:id="@+id/nameText"
-            android:text="@string/app_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal|bottom"/>

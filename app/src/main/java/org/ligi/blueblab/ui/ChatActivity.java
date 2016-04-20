@@ -18,6 +18,7 @@ import java.util.List;
 import java.util.UUID;
 import org.ligi.blueblab.R;
 import org.ligi.blueblab.model.Message;
+import org.ligi.blueblab.model.Mood;
 
 public class ChatActivity extends AppCompatActivity {
 
@@ -80,13 +81,20 @@ public class ChatActivity extends AppCompatActivity {
         @Bind(R.id.messageText)
         TextView messageText;
 
+        AvatarController avatarController;
+
         public MessageViewHolder(final View itemView) {
             super(itemView);
             ButterKnife.bind(this,itemView);
+
+            avatarController=new AvatarController(itemView);
+            avatarController.setSize();
+
         }
 
         public void setText(String message) {
             messageText.setText(message);
+            avatarController.setMood(Mood.NEUTRAL);
         }
     }
 
