@@ -14,14 +14,11 @@ import org.ligi.blueblab.model.User;
 
 public class EntropySource  {
 
-    private final Context context;
     private final Random random = new Random();
     private String[] names;
     private String[] hellos=new String[] { "Hi","Hello","Aloha","Greetings"};
-    private String randomHi;
 
     public EntropySource(final Context context) {
-        this.context = context;
 
         final InputStream inputStream = context.getResources().openRawResource(R.raw.names);
 
