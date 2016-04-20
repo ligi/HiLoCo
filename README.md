@@ -1,4 +1,4 @@
-[![Build Status](https://snap-ci.com/ligi/BlueBlab/branch/master/build_image)](https://snap-ci.com/ligi/BlueBlab/branch/master)
+[![Build Status](https://snap-ci.com/ligi/HiLoCo/branch/master/build_image)](https://snap-ci.com/ligi/HiLoCo/branch/master)
 
 ### HiLoCo
 
