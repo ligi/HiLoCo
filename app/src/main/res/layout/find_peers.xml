@@ -6,7 +6,7 @@
         android:layout_height="match_parent" xmlns:grid="http://schemas.android.com/apk/res-auto"
         android:focusable="true"
         android:focusableInTouchMode="true"
-        tools:context=".ui.MainActivity">
+        tools:context=".ui.UserEditActivity">
 
 
     <org.ligi.blueblab.ui.SquareGridByWidthLayout

@@ -17,7 +17,7 @@ import org.ligi.blueblab.App;
 import org.ligi.blueblab.R;
 import org.ligi.blueblab.model.Mood;
 
-public class MainActivity extends AppCompatActivity {
+public class UserEditActivity extends AppCompatActivity {
 
     @Bind(R.id.nameInputEditText)
     EditText nameEditText;

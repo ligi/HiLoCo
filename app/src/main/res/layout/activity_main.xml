@@ -7,7 +7,7 @@
 
         android:focusable="true"
         android:focusableInTouchMode="true"
-        tools:context=".ui.MainActivity">
+        tools:context=".ui.UserEditActivity">
 
 
     <android.support.design.widget.TextInputLayout
