@@ -1,7 +1,6 @@
 package org.ligi.blueblab.model
 
 import com.chibatching.kotpref.KotprefModel
-import org.ligi.blueblab.model.Mood
 
 class UserModel : KotprefModel() {
 
