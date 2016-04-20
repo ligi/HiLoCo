@@ -15,7 +15,6 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.UUID;
 import org.ligi.blueblab.App;
 import org.ligi.blueblab.R;
 import org.ligi.blueblab.model.Message;
@@ -33,7 +32,8 @@ public class ChatActivity extends AppCompatActivity {
 
     @OnClick(R.id.sendFAB)
     void onSendClick() {
-        messageList.add(new Message(App.userModel.toUser(),messageText.getText().toString()));
+        messageList.add(new Message(App.userModel.toUser(), messageText.getText().toString()));
+        messageList.add(new Message(App.chatPartner, messageText.getText().toString().toUpperCase()));
         adapter.notifyDataSetChanged();
         messageText.setText("");
     }
@@ -52,7 +52,7 @@ public class ChatActivity extends AppCompatActivity {
         }
 
         final LinearLayoutManager layout = new LinearLayoutManager(this);
-        layout.setReverseLayout(true);
+        layout.setStackFromEnd(true);
         messageRecycler.setLayoutManager(layout);
         adapter = new MessageAdapter();
         messageRecycler.setAdapter(adapter);
@@ -68,7 +68,7 @@ public class ChatActivity extends AppCompatActivity {
 
         @Override
         public void onBindViewHolder(final MessageViewHolder holder, final int position) {
-            holder.setText(messageList.get(position).message);
+            holder.setText(messageList.get(position));
         }
 
         @Override
@@ -86,16 +86,16 @@ public class ChatActivity extends AppCompatActivity {
 
         public MessageViewHolder(final View itemView) {
             super(itemView);
-            ButterKnife.bind(this,itemView);
+            ButterKnife.bind(this, itemView);
 
-            avatarController=new AvatarController(itemView);
+            avatarController = new AvatarController(itemView);
             avatarController.setSize();
 
         }
 
-        public void setText(String message) {
-            messageText.setText(message);
-            avatarController.setMood(Mood.NEUTRAL);
+        public void setText(Message message) {
+            messageText.setText(message.message);
+            avatarController.setFromUserSmall(message.user);
         }
     }
 

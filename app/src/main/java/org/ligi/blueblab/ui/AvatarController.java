@@ -76,4 +76,10 @@ public class AvatarController {
         setFaceColor(user.getColor());
         setName(user.getName());
     }
+
+    public void setFromUserSmall(User user) {
+        setMood(user.getMood());
+        setFaceColor(user.getColor());
+        setName("");
+    }
 }
