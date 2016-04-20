@@ -21,6 +21,8 @@
         </activity>
 
         <activity android:name=".FindPeerActivity"/>
+        <activity android:name=".ChatActivity"/>
+
     </application>
 
 </manifest>

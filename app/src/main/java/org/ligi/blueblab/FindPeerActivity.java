@@ -4,10 +4,12 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import java.util.Random;
+import org.ligi.axt.AXT;
 
 public class FindPeerActivity extends AppCompatActivity {
 
@@ -49,6 +51,14 @@ public class FindPeerActivity extends AppCompatActivity {
                 } else if (b) {
                     avatarView.rootView.setVisibility(View.INVISIBLE);
                 }
+
+                inflate.setOnTouchListener(new View.OnTouchListener() {
+                    @Override
+                    public boolean onTouch(final View v, final MotionEvent event) {
+                        AXT.at(FindPeerActivity.this).startCommonIntent().activityFromClass(ChatActivity.class);
+                        return false;
+                    }
+                });
             }
         }
 
