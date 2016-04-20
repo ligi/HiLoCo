@@ -19,7 +19,7 @@
         <android.support.design.widget.TextInputLayout
                 android:padding="8dp"
                 android:id="@+id/nameInputTextInput"
-                android:layout_width="256dp"
+                android:layout_width="128dp"
 
                 android:layout_height="wrap_content">
 
