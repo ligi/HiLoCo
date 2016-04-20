@@ -34,19 +34,19 @@
             android:layout_height="wrap_content">
 
         <ImageView
-                android:src="@drawable/ic_image_tag_faces"
+                android:src="@drawable/neutral"
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="wrap_content"/>
 
         <ImageView
-                android:src="@drawable/ic_image_tag_faces"
+                android:src="@drawable/amused"
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="wrap_content"/>
 
         <ImageView
-                android:src="@drawable/ic_image_tag_faces"
+                android:src="@drawable/calm"
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="wrap_content"/>
@@ -61,19 +61,19 @@
             android:layout_height="wrap_content">
 
         <ImageView
-                android:src="@drawable/ic_image_tag_faces"
+                android:src="@drawable/chatty"
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="wrap_content"/>
 
         <ImageView
-                android:src="@drawable/ic_image_tag_faces"
+                android:src="@drawable/sad"
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="wrap_content"/>
 
         <ImageView
-                android:src="@drawable/ic_image_tag_faces"
+                android:src="@drawable/angry"
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="wrap_content"/>

@@ -10,7 +10,6 @@ import android.widget.TextView;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import java.util.Random;
-import org.w3c.dom.Text;
 
 public class FindPeerActivity extends AppCompatActivity {
 
@@ -77,7 +76,6 @@ public class FindPeerActivity extends AppCompatActivity {
         myAvatar.rootView.setVisibility(View.VISIBLE);
         myAvatar.setName(App.userModel.name);
     }
-
 
     @Override
     public boolean onOptionsItemSelected(final MenuItem item) {

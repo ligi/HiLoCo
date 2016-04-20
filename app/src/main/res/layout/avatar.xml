@@ -15,6 +15,12 @@
         tools:context="org.ligi.blueblab.MainActivity">
 
     <ImageView
+            android:id="@+id/circleBackground"
+            android:src="@drawable/circle"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+    <ImageView
             android:id="@+id/faceImage"
             android:src="@drawable/amused"
             android:layout_width="match_parent"
