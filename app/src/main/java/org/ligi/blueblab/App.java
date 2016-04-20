@@ -21,7 +21,7 @@ public class App extends Application {
             userModel.setId(UUID.randomUUID().toString());
         }
 
-        transporter = new FakeTransporter();
+        transporter = new FakeTransporter(this);
     }
 
     public static UserModel userModel;

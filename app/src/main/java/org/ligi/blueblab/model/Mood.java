@@ -19,4 +19,6 @@ public enum Mood {
     public int getResId() {
         return resId;
     }
+
+    public static Mood[] ALL_MOODS = new Mood[]{NEUTRAL, AMUSED, CALM, CHATTY, SAD, ANGRY};
 }

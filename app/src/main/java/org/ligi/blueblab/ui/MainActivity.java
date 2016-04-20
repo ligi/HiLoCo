@@ -47,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
 
         final LayoutInflater from = LayoutInflater.from(this);
 
-        Mood[] moods = new Mood[]{Mood.NEUTRAL, Mood.AMUSED, Mood.CALM, Mood.CHATTY, Mood.SAD, Mood.ANGRY};
+
         int[] faceColors = new int[]{R.color.faceColor1, R.color.faceColor2, R.color.faceColor3};
 
         for (int y = 0; y < 3; y++) {
@@ -61,7 +61,7 @@ public class MainActivity extends AppCompatActivity {
 
                 if (y < 2) {
                     moodAvatars.add(avatarController);
-                    final Mood mood = moods[(y * 3 + x) % moods.length];
+                    final Mood mood = Mood.ALL_MOODS[(y * 3 + x) % Mood.ALL_MOODS.length];
                     avatarController.setMood(mood);
 
                     avatarView.setClickable(true);

@@ -11,6 +11,7 @@ import android.view.View;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import java.util.HashMap;
+import java.util.Map;
 import java.util.Random;
 import org.ligi.axt.AXT;
 import org.ligi.blueblab.App;
@@ -92,15 +93,31 @@ public class FindPeerActivity extends AppCompatActivity {
                 }
 
                 userPositions.clear();
+                userObjects.clear();
 
                 for (final User user : App.transporter.getVisibleUsers()) {
                     if (!userPositions.containsKey(user.getId())) {
                         userPositions.put(user.getId(), getRandomPoint());
+                        userObjects.put(user.getId(),user);
                     }
                 }
 
                 for (final Point point : userPositions.values()) {
                     avatarControllers[point.x][point.y].rootView.setVisibility(View.VISIBLE);
+                }
+
+
+                for (final Map.Entry<String, Point> stringPointEntry : userPositions.entrySet()) {
+                    final Point point = stringPointEntry.getValue();
+                    final AvatarController avatarController = avatarControllers[point.x][point.y];
+
+                    final User user = userObjects.get(stringPointEntry.getKey());
+                    avatarController.rootView.setVisibility(View.VISIBLE);
+                    avatarController.setMood(user.getMood());
+                    avatarController.setFaceColor(user.getColor());
+                    avatarController.setName(user.getName());
+
+
                 }
 
                 h.postDelayed(this, 500);
@@ -110,9 +127,15 @@ public class FindPeerActivity extends AppCompatActivity {
 
     private Point getRandomPoint() {
         Random r = new Random();
-        return new Point(Math.abs(r.nextInt() % SIZE), Math.abs(r.nextInt() % SIZE));
+        final Point point = new Point(Math.abs(r.nextInt() % SIZE), Math.abs(r.nextInt() % SIZE));
+
+        if (point.equals(new Point(CENTER,CENTER))) {
+            return getRandomPoint(); // try again ;-)
+        }
+        return point;
     }
 
+    private HashMap<String, User> userObjects = new HashMap<>();
     private HashMap<String, Point> userPositions = new HashMap<>();
 
     @Override
