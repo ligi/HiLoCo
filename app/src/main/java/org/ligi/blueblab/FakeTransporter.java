@@ -34,8 +34,9 @@ public class FakeTransporter implements Transporter {
     @Override
     public List<User> getVisibleUsers() {
         final ArrayList<User> users = new ArrayList<>();
-        users.add(new User(getRandomName(), getRandomMood(), UUID.randomUUID().toString(), random.nextInt(Integer.MAX_VALUE)));
-        users.add(new User(getRandomName(), getRandomMood(), UUID.randomUUID().toString(), random.nextInt(Integer.MAX_VALUE)));
+        for(int i=0;i<random.nextInt(4);i++) {
+            users.add(new User(getRandomName(), getRandomMood(), UUID.randomUUID().toString(), random.nextInt(Integer.MAX_VALUE)));
+        }
         return users;
     }
 

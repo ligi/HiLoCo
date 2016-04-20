@@ -120,7 +120,7 @@ public class FindPeerActivity extends AppCompatActivity {
 
                 }
 
-                h.postDelayed(this, 500);
+                h.postDelayed(this, 3000);
             }
         });
     }
