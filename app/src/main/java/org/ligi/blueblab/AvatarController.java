@@ -2,7 +2,6 @@ package org.ligi.blueblab;
 
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.VectorDrawable;
-import android.support.v4.content.ContextCompat;
 import android.support.v4.graphics.drawable.DrawableCompat;
 import android.support.v7.widget.AppCompatImageView;
 import android.view.View;
@@ -21,7 +20,9 @@ public class AvatarController {
 
     @Bind(R.id.nameText)
     TextView nameText;
-    public Mood mood=Mood.NEUTRAL;
+
+    public Mood mood = Mood.NEUTRAL;
+    public int color;
 
     AvatarController(final View rootView) {
         this.rootView = rootView;
@@ -33,8 +34,8 @@ public class AvatarController {
     }
 
     public void setMood(Mood mood) {
-        this.mood=mood;
-        if (mood==null) {
+        this.mood = mood;
+        if (mood == null) {
             faceImage.setVisibility(View.GONE);
         } else {
             faceImage.setVisibility(View.VISIBLE);
@@ -43,10 +44,11 @@ public class AvatarController {
     }
 
     public void setHasFace(boolean hasFace) {
-        circleBackground.setVisibility(hasFace?View.VISIBLE:View.GONE);
+        circleBackground.setVisibility(hasFace ? View.VISIBLE : View.GONE);
     }
 
     public void setFaceColor(int color) {
+        this.color = color;
         final VectorDrawable drawable = (VectorDrawable) circleBackground.getDrawable();
         final Drawable mutate = drawable.mutate();
         DrawableCompat.setTint(mutate, color);

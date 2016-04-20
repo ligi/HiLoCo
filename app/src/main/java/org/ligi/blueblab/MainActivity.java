@@ -2,7 +2,6 @@ package org.ligi.blueblab;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -103,6 +102,11 @@ public class MainActivity extends AppCompatActivity {
             } else {
                 moodAvatar.setHasFace(false);
             }
+        }
+
+        for (final AvatarController colorAvatar : colorAvatars) {
+            Mood mood = (colorAvatar.color == App.userModel.color) ? App.userModel.mood:null;
+            colorAvatar.setMood(mood);
         }
     }
 
