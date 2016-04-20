@@ -5,21 +5,36 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import java.util.Random;
+import org.w3c.dom.Text;
 
 public class FindPeerActivity extends AppCompatActivity {
 
     public static final int SIZE = 5;
+
     @Bind(R.id.gridLayout)
     SquareGridByWidthLayout gridLayout;
 
-    private class AvatarView {
+    public static class AvatarView {
         private final View rootView;
+
+        @Bind(R.id.faceImage)
+        ImageView faceImage;
+
+        @Bind(R.id.nameText)
+        TextView nameText;
 
         private AvatarView(final View rootView) {
             this.rootView = rootView;
+            ButterKnife.bind(this,rootView);
+        }
+
+        public void setName(String name) {
+            nameText.setText(name);
         }
     }
 
@@ -39,7 +54,7 @@ public class FindPeerActivity extends AppCompatActivity {
 
         final LayoutInflater from = LayoutInflater.from(this);
         final Random random = new Random();
-        final int MIDDLE = (SIZE / 2) ;
+        final int MIDDLE = (SIZE / 2);
 
 
         for (int x = 0; x < SIZE; x++) {
@@ -60,6 +75,7 @@ public class FindPeerActivity extends AppCompatActivity {
         }
 
         myAvatar.rootView.setVisibility(View.VISIBLE);
+        myAvatar.setName(App.userModel.name);
     }
 
 
