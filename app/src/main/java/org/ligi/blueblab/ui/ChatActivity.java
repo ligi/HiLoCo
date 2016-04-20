@@ -19,7 +19,6 @@ import java.util.List;
 import org.ligi.blueblab.App;
 import org.ligi.blueblab.R;
 import org.ligi.blueblab.model.Message;
-import org.ligi.blueblab.model.Mood;
 
 public class ChatActivity extends AppCompatActivity {
 
@@ -65,6 +64,14 @@ public class ChatActivity extends AppCompatActivity {
         messageRecycler.setLayoutManager(layout);
         adapter = new MessageAdapter();
         messageRecycler.setAdapter(adapter);
+
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                messageList.add(new Message(App.chatPartner, App.entropySource.getRandomHello()));
+                adapter.notifyDataSetChanged();
+            }
+        },2000);
     }
 
     class MessageAdapter extends RecyclerView.Adapter<MessageViewHolder> {

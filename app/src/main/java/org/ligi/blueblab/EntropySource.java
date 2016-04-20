@@ -17,6 +17,8 @@ public class EntropySource  {
     private final Context context;
     private final Random random = new Random();
     private String[] names;
+    private String[] hellos=new String[] { "Hi","Hello","Aloha","Greetings"};
+    private String randomHi;
 
     public EntropySource(final Context context) {
         this.context = context;
@@ -37,10 +39,14 @@ public class EntropySource  {
     }
 
     public Mood getRandomMood() {
-        return Mood.ALL_MOODS[random.nextInt(5)];
+        return Mood.ALL_MOODS[random.nextInt(Mood.ALL_MOODS.length)];
     }
 
     public Random getRandom() {
         return random;
+    }
+
+    public String getRandomHello() {
+        return hellos[random.nextInt(hellos.length)];
     }
 }
