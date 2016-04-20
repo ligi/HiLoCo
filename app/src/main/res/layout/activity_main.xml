@@ -3,7 +3,7 @@
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="match_parent" xmlns:grid="http://schemas.android.com/apk/res-auto"
 
         android:focusable="true"
         android:focusableInTouchMode="true"
@@ -26,60 +26,14 @@
     </android.support.design.widget.TextInputLayout>
 
 
-    <LinearLayout
+    <org.ligi.blueblab.SquareGridByWidthLayout
+            android:id="@+id/avatarGrid"
             android:layout_below="@id/nameInputTextInput"
-            android:id="@+id/avatarRow1"
-            android:padding="8dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-        <ImageView
-                android:src="@drawable/neutral"
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="wrap_content"/>
-
-        <ImageView
-                android:src="@drawable/amused"
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="wrap_content"/>
-
-        <ImageView
-                android:src="@drawable/calm"
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="wrap_content"/>
-
-    </LinearLayout>
-
-
-    <LinearLayout
-            android:layout_below="@id/avatarRow1"
-            android:padding="8dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-        <ImageView
-                android:src="@drawable/chatty"
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="wrap_content"/>
-
-        <ImageView
-                android:src="@drawable/sad"
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="wrap_content"/>
-
-        <ImageView
-                android:src="@drawable/angry"
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="wrap_content"/>
-
-    </LinearLayout>
-
+            android:layout_height="wrap_content"
+            grid:rowCount="3"
+            grid:columnCount="3"
+            />
 
     <android.support.design.widget.FloatingActionButton
             android:id="@+id/startFAB"

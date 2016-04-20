@@ -5,8 +5,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.ImageView;
-import android.widget.TextView;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import java.util.Random;
@@ -18,26 +16,7 @@ public class FindPeerActivity extends AppCompatActivity {
     @Bind(R.id.gridLayout)
     SquareGridByWidthLayout gridLayout;
 
-    public static class AvatarView {
-        private final View rootView;
-
-        @Bind(R.id.faceImage)
-        ImageView faceImage;
-
-        @Bind(R.id.nameText)
-        TextView nameText;
-
-        private AvatarView(final View rootView) {
-            this.rootView = rootView;
-            ButterKnife.bind(this,rootView);
-        }
-
-        public void setName(String name) {
-            nameText.setText(name);
-        }
-    }
-
-    private AvatarView myAvatar;
+    private AvatarController myAvatar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,7 +40,7 @@ public class FindPeerActivity extends AppCompatActivity {
                 final View inflate = from.inflate(R.layout.avatar, gridLayout, false);
 
                 gridLayout.addView(inflate);
-                final AvatarView avatarView = new AvatarView(inflate);
+                final AvatarController avatarView = new AvatarController(inflate);
 
                 final boolean b = random.nextInt() % 10 != 5;
 

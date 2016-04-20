@@ -10,6 +10,7 @@
 
 
     <org.ligi.blueblab.SquareGridByWidthLayout
+            android:background="@drawable/bg"
             android:id="@+id/gridLayout"
             grid:rowCount="5"
             grid:columnCount="5"
