@@ -56,6 +56,8 @@ public class FindPeerActivity extends AppCompatActivity {
 
                 if (x == CENTER && y == CENTER) {
                     myAvatarController = avatarView;
+                    avatarView.setFaceColor(App.userModel.getColor());
+                    avatarView.setMood(App.userModel.getMood());
                 } else {
                     avatarView.rootView.setVisibility(View.INVISIBLE);
                 }
