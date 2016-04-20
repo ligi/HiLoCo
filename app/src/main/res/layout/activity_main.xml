@@ -19,6 +19,7 @@
         <EditText
                 android:id="@+id/nameInputEditText"
                 android:hint="enter your name"
+                android:singleLine="true"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
 
