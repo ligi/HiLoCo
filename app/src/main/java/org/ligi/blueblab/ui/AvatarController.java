@@ -1,4 +1,4 @@
-package org.ligi.blueblab;
+package org.ligi.blueblab.ui;
 
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.VectorDrawable;
@@ -8,6 +8,8 @@ import android.view.View;
 import android.widget.TextView;
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import org.ligi.blueblab.R;
+import org.ligi.blueblab.model.Mood;
 
 public class AvatarController {
     final View rootView;

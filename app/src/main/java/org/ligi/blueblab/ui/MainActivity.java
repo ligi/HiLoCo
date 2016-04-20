@@ -1,8 +1,7 @@
-package org.ligi.blueblab;
+package org.ligi.blueblab.ui;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -14,6 +13,9 @@ import java.util.ArrayList;
 import java.util.List;
 import org.ligi.axt.AXT;
 import org.ligi.axt.simplifications.SimpleTextWatcher;
+import org.ligi.blueblab.App;
+import org.ligi.blueblab.R;
+import org.ligi.blueblab.model.Mood;
 
 public class MainActivity extends AppCompatActivity {
 

@@ -7,7 +7,7 @@
 
         android:focusable="true"
         android:focusableInTouchMode="true"
-        tools:context="org.ligi.blueblab.MainActivity">
+        tools:context=".ui.MainActivity">
 
 
     <android.support.design.widget.TextInputLayout
@@ -26,7 +26,7 @@
     </android.support.design.widget.TextInputLayout>
 
 
-    <org.ligi.blueblab.SquareGridByWidthLayout
+    <org.ligi.blueblab.ui.SquareGridByWidthLayout
             android:id="@+id/avatarGrid"
             android:layout_below="@id/nameInputTextInput"
             android:layout_width="match_parent"

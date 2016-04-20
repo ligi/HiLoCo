@@ -1,7 +1,7 @@
 package org.ligi.blueblab.model
 
 import com.chibatching.kotpref.KotprefModel
-import org.ligi.blueblab.Mood
+import org.ligi.blueblab.model.Mood
 
 class UserModel : KotprefModel() {
 
@@ -18,7 +18,7 @@ class UserModel : KotprefModel() {
         return Mood.valueOf(moodString)
     }
 
-    fun setMood(mood:Mood) {
+    fun setMood(mood: Mood) {
         moodString = mood.toString()
     }
 

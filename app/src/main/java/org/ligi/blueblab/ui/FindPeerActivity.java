@@ -1,4 +1,4 @@
-package org.ligi.blueblab;
+package org.ligi.blueblab.ui;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -10,6 +10,8 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 import java.util.Random;
 import org.ligi.axt.AXT;
+import org.ligi.blueblab.App;
+import org.ligi.blueblab.R;
 
 public class FindPeerActivity extends AppCompatActivity {
 

@@ -6,10 +6,10 @@
         android:layout_height="match_parent" xmlns:grid="http://schemas.android.com/apk/res-auto"
         android:focusable="true"
         android:focusableInTouchMode="true"
-        tools:context="org.ligi.blueblab.MainActivity">
+        tools:context=".ui.MainActivity">
 
 
-    <org.ligi.blueblab.SquareGridByWidthLayout
+    <org.ligi.blueblab.ui.SquareGridByWidthLayout
             android:background="@drawable/bg"
             android:id="@+id/gridLayout"
             grid:rowCount="5"
@@ -17,5 +17,5 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-    </org.ligi.blueblab.SquareGridByWidthLayout>
+    </org.ligi.blueblab.ui.SquareGridByWidthLayout>
 </RelativeLayout>

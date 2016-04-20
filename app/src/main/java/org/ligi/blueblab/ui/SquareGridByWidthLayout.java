@@ -1,4 +1,4 @@
-package org.ligi.blueblab;
+package org.ligi.blueblab.ui;
 
 import android.content.Context;
 import android.support.v7.widget.GridLayout;

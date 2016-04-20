@@ -1,4 +1,4 @@
-package org.ligi.blueblab;
+package org.ligi.blueblab.ui;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -16,6 +16,7 @@ import butterknife.OnClick;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
+import org.ligi.blueblab.R;
 import org.ligi.blueblab.model.Message;
 
 public class ChatActivity extends AppCompatActivity {
