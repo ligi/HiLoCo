@@ -60,8 +60,6 @@ public class MainActivity extends AppCompatActivity {
                     moodAvatars.add(avatarController);
                     final Mood mood = moods[(y * 3 + x) % moods.length];
                     avatarController.setMood(mood);
-                    avatarController.setHasFace((mood == App.userModel.mood));
-                    avatarController.setFaceColor(App.userModel.color);
 
                     avatarView.setClickable(true);
                     avatarView.setOnTouchListener(new View.OnTouchListener() {
@@ -87,14 +85,13 @@ public class MainActivity extends AppCompatActivity {
 
                     });
                     colorAvatars.add(avatarController);
-
                     avatarController.setFaceColor(color);
-                    avatarController.setMood(null);
                 }
 
                 avatarGrid.addView(avatarView);
             }
         }
+        refresh();
     }
 
     public void refresh() {
