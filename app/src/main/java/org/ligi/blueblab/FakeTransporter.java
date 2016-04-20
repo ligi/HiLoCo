@@ -18,7 +18,7 @@ public class FakeTransporter implements Transporter {
     @Override
     public List<User> getVisibleUsers() {
         final ArrayList<User> users = new ArrayList<>();
-        for (int i = 0; i < entropySource.getRandom().nextInt(4); i++) {
+        for (int i = 0; i < entropySource.getRandom().nextInt(7); i++) {
             users.add(new User(UUID.randomUUID().toString(),
                                entropySource.getRandomName(),
                                entropySource.getRandomMood(),
