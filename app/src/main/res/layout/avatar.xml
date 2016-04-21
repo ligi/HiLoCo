@@ -7,7 +7,7 @@
 
         android:id="@+id/avatarContainer"
 
-        android:padding="8dp"
+        android:padding="@dimen/avatar_padding"
         grid:layout_columnWeight="1"
         grid:layout_rowWeight="1"
         grid:layout_gravity="fill"
@@ -31,6 +31,8 @@
             android:layout_height="match_parent"/>
 
     <TextView
+            android:textSize="12dp"
+            android:singleLine="true"
             android:id="@+id/nameText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

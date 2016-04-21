@@ -41,6 +41,7 @@ public class FindPeerActivity extends AppCompatActivity {
     }
 
     private AvatarControllerWithUser[][] avatarControllers;
+    int[] bgs=new int[]{R.drawable.bg1,R.drawable.bg2,R.drawable.bg3,R.drawable.bg4,R.drawable.bg5,R.drawable.bg6};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -143,8 +144,15 @@ public class FindPeerActivity extends AppCompatActivity {
                     }
                 }
 
+                h.postDelayed(this, 2000);
+            }
+        });
 
-                int[] bgs=new int[]{R.drawable.bg1,R.drawable.bg2,R.drawable.bg3,R.drawable.bg4,R.drawable.bg5,R.drawable.bg6};
+
+        h.post(new Runnable() {
+            @Override
+            public void run() {
+
                 currentBG=(currentBG+1)%bgs.length;
 
                 gridLayout.setBackgroundResource(bgs[currentBG]);
