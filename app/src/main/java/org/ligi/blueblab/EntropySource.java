@@ -46,4 +46,13 @@ public class EntropySource  {
     public String getRandomHello() {
         return hellos[random.nextInt(hellos.length)];
     }
+
+
+    public User getRandomUser() {
+        return new User(UUID.randomUUID().toString(),
+                 getRandomName(),
+                 getRandomMood(),
+                 getRandom().nextInt(Integer.MAX_VALUE));
+    }
+
 }

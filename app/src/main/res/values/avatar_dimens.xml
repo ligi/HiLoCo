@@ -1,3 +1,4 @@
 <resources>
     <dimen name="avatar_padding">0dp</dimen>
+    <dimen name="avatar_history_size">64dp</dimen>
 </resources>

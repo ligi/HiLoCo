@@ -8,6 +8,8 @@ import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import java.util.HashMap;
@@ -18,6 +20,7 @@ import java.util.Set;
 import org.ligi.axt.AXT;
 import org.ligi.blueblab.App;
 import org.ligi.blueblab.R;
+import org.ligi.blueblab.model.Mood;
 import org.ligi.blueblab.model.User;
 
 public class FindPeerActivity extends AppCompatActivity {
@@ -28,6 +31,9 @@ public class FindPeerActivity extends AppCompatActivity {
 
     @Bind(R.id.gridLayout)
     SquareGridByWidthLayout gridLayout;
+
+    @Bind(R.id.historyContainer)
+    ViewGroup historyAvatarContainer;
 
     private AvatarController myAvatarController;
 
@@ -159,6 +165,22 @@ public class FindPeerActivity extends AppCompatActivity {
                 h.postDelayed(this, 100);
             }
         });
+
+
+
+
+        for (int i=0;i<10;i++) {
+            final View inflate = from.inflate(R.layout.avatar, historyAvatarContainer, false);
+            final AvatarController avatarController = new AvatarController(inflate);
+
+            avatarController.setFromUser(App.entropySource.getRandomUser());
+
+            final int dimension = Math.round(getResources().getDimension(R.dimen.avatar_history_size));
+            inflate.setLayoutParams(new LinearLayout.LayoutParams(dimension, dimension));
+
+            historyAvatarContainer.addView(inflate);
+        }
+
     }
 
     private Point getRandomPoint() {

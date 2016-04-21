@@ -1,21 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout
+<LinearLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" xmlns:grid="http://schemas.android.com/apk/res-auto" xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:grid="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent" android:layout_height="match_parent"
         android:focusable="true"
         android:focusableInTouchMode="true"
-        android:padding="24dp"
+
+        android:orientation="vertical"
         tools:context=".ui.UserEditActivity">
 
     <org.ligi.blueblab.ui.SquareGridByWidthLayout
             android:id="@+id/gridLayout"
             android:background="@drawable/bg1"
+            android:padding="24dp"
             grid:rowCount="5"
             grid:columnCount="5"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
     </org.ligi.blueblab.ui.SquareGridByWidthLayout>
-</FrameLayout>
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_weight="1"
+            android:background="@color/colorPrimary"
+            android:layout_height="0dp"
+            android:orientation="vertical"
+            >
+
+        <TextView
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:padding="16dp"
+                android:textColor="@android:color/white"
+                android:text="History:"/>
+
+        <HorizontalScrollView
+
+                android:padding="16dp"
+                android:layout_gravity="center_vertical"
+                android:layout_width="match_parent" android:layout_height="wrap_content">
+
+            <LinearLayout
+                    android:id="@+id/historyContainer"
+                    android:orientation="horizontal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent">
+
+            </LinearLayout>
+        </HorizontalScrollView>
+    </LinearLayout>
+</LinearLayout>
