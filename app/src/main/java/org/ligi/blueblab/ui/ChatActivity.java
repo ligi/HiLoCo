@@ -34,18 +34,21 @@ public class ChatActivity extends AppCompatActivity {
     @OnClick(R.id.sendFAB)
     void onSendClick() {
         final String message = messageText.getText().toString();
-        messageList.add(new Message(App.userModel.toUser(), message));
+        addMessage(new Message(App.userModel.toUser(), message));
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-
-                messageList.add(new Message(App.chatPartner, new Faker().lorem().sentence(10)));
-                adapter.notifyDataSetChanged();
+                addMessage(new Message(App.chatPartner, new Faker().lorem().sentence(10)));
             }
         },2000);
 
-        adapter.notifyDataSetChanged();
         messageText.setText("");
+    }
+
+    private void addMessage(final Message message) {
+        messageList.add(message);
+        adapter.notifyDataSetChanged();
+        messageRecycler.scrollToPosition(adapter.getItemCount()-1);
     }
 
     List<Message> messageList = new ArrayList<>();
@@ -70,8 +73,8 @@ public class ChatActivity extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                messageList.add(new Message(App.chatPartner, App.entropySource.getRandomHello()));
-                adapter.notifyDataSetChanged();
+
+                addMessage(new Message(App.chatPartner, App.entropySource.getRandomHello()));
             }
         },2000);
     }
