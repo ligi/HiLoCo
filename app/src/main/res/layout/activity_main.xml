@@ -54,7 +54,7 @@
             android:layout_margin="16dp"
             android:layout_alignParentBottom="true"
             android:layout_alignParentRight="true"
-            android:src="@drawable/ic_hardware_keyboard_arrow_right"
+            android:src="@drawable/ic_navigation_check"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
 </RelativeLayout>
