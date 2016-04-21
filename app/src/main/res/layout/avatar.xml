@@ -7,6 +7,7 @@
 
         android:id="@+id/avatarContainer"
 
+        android:padding="8dp"
         grid:layout_columnWeight="1"
         grid:layout_rowWeight="1"
         grid:layout_gravity="fill"

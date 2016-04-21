@@ -20,7 +20,6 @@
                 android:padding="8dp"
                 android:id="@+id/nameInputTextInput"
                 android:layout_width="200dp"
-
                 android:layout_height="wrap_content">
 
             <EditText
@@ -42,6 +41,7 @@
 
     <org.ligi.blueblab.ui.SquareGridByWidthLayout
             android:id="@+id/avatarGrid"
+            android:padding="64dp"
             android:layout_below="@id/nameInputContainer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
