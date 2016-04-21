@@ -22,6 +22,7 @@ import org.ligi.blueblab.model.User;
 
 public class FindPeerActivity extends AppCompatActivity {
 
+    private int currentBG=0;
     public static final int SIZE = 5;
     public static final int CENTER = SIZE / 2;
 
@@ -142,7 +143,12 @@ public class FindPeerActivity extends AppCompatActivity {
                     }
                 }
 
-                h.postDelayed(this, 3000);
+
+                int[] bgs=new int[]{R.drawable.bg1,R.drawable.bg2,R.drawable.bg3,R.drawable.bg4,R.drawable.bg5,R.drawable.bg6};
+                currentBG=(currentBG+1)%bgs.length;
+
+                gridLayout.setBackgroundResource(bgs[currentBG]);
+                h.postDelayed(this, 100);
             }
         });
     }
