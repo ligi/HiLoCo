@@ -14,6 +14,7 @@ import android.widget.TextView;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import com.github.javafaker.Faker;
 import java.util.ArrayList;
 import java.util.List;
 import org.ligi.blueblab.App;
@@ -37,7 +38,8 @@ public class ChatActivity extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                messageList.add(new Message(App.chatPartner, message.toUpperCase()));
+
+                messageList.add(new Message(App.chatPartner, new Faker().lorem().sentence(10)));
                 adapter.notifyDataSetChanged();
             }
         },2000);

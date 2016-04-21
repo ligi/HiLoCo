@@ -35,7 +35,7 @@ public class FakeTransporter implements Transporter {
         for (int i=0;i<entropySource.getRandom().nextInt(3);i++) {
             if (entropySource.getRandom().nextBoolean() && !users.isEmpty()) {
                 users.remove(entropySource.getRandom().nextInt(users.size()));
-            } else {
+            } else if(users.size()<12) {
                 addRandomUser();
             }
         }
