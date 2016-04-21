@@ -20,12 +20,11 @@ import java.util.Set;
 import org.ligi.axt.AXT;
 import org.ligi.blueblab.App;
 import org.ligi.blueblab.R;
-import org.ligi.blueblab.model.Mood;
 import org.ligi.blueblab.model.User;
 
 public class FindPeerActivity extends AppCompatActivity {
 
-    private int currentBG=0;
+    private int currentBG = 0;
     public static final int SIZE = 5;
     public static final int CENTER = SIZE / 2;
 
@@ -47,7 +46,7 @@ public class FindPeerActivity extends AppCompatActivity {
     }
 
     private AvatarControllerWithUser[][] avatarControllers;
-    int[] bgs=new int[]{R.drawable.bg1,R.drawable.bg2,R.drawable.bg3,R.drawable.bg4,R.drawable.bg5,R.drawable.bg6};
+    int[] bgs = new int[]{R.drawable.bg1, R.drawable.bg2, R.drawable.bg3, R.drawable.bg4, R.drawable.bg5, R.drawable.bg6};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -108,7 +107,7 @@ public class FindPeerActivity extends AppCompatActivity {
 
                 avatarControllers[CENTER][CENTER].user = App.userModel.toUser();
 
-                Set<String> allVisibleUserIds=new HashSet<>();
+                Set<String> allVisibleUserIds = new HashSet<>();
 
                 for (final User user : App.transporter.getVisibleUsers()) {
                     allVisibleUserIds.add(user.getId());
@@ -118,7 +117,7 @@ public class FindPeerActivity extends AppCompatActivity {
                     }
                 }
 
-                Set<String> toRemove=new HashSet<>();
+                Set<String> toRemove = new HashSet<>();
 
                 for (final String s : userObjects.keySet()) {
                     if (!allVisibleUserIds.contains(s)) {
@@ -159,7 +158,7 @@ public class FindPeerActivity extends AppCompatActivity {
             @Override
             public void run() {
 
-                currentBG=(currentBG+1)%bgs.length;
+                currentBG = (currentBG + 1) % bgs.length;
 
                 gridLayout.setBackgroundResource(bgs[currentBG]);
                 h.postDelayed(this, 100);
@@ -167,14 +166,21 @@ public class FindPeerActivity extends AppCompatActivity {
         });
 
 
-
-
-        for (int i=0;i<10;i++) {
+        for (int i = 0; i < 10; i++) {
             final View inflate = from.inflate(R.layout.avatar, historyAvatarContainer, false);
-            final AvatarController avatarController = new AvatarController(inflate);
-
+            final AvatarControllerWithUser avatarController = new AvatarControllerWithUser(inflate);
+            avatarController.user = App.entropySource.getRandomUser();
             avatarController.setFromUser(App.entropySource.getRandomUser());
 
+            inflate.setOnTouchListener(new View.OnTouchListener() {
+                @Override
+                public boolean onTouch(final View v, final MotionEvent event) {
+                    App.chatPartner = avatarController.user;
+                    AXT.at(FindPeerActivity.this).startCommonIntent().activityFromClass(ChatActivity.class);
+
+                    return true;
+                }
+            });
             final int dimension = Math.round(getResources().getDimension(R.dimen.avatar_history_size));
             inflate.setLayoutParams(new LinearLayout.LayoutParams(dimension, dimension));
 
