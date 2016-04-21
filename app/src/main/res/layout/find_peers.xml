@@ -1,21 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<FrameLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" xmlns:grid="http://schemas.android.com/apk/res-auto"
+        android:layout_height="match_parent" xmlns:grid="http://schemas.android.com/apk/res-auto" xmlns:app="http://schemas.android.com/apk/res-auto"
         android:focusable="true"
         android:focusableInTouchMode="true"
         tools:context=".ui.UserEditActivity">
 
-
     <org.ligi.blueblab.ui.SquareGridByWidthLayout
-            android:background="@drawable/bg"
             android:id="@+id/gridLayout"
+            android:background="@drawable/bg"
             grid:rowCount="5"
             grid:columnCount="5"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
     </org.ligi.blueblab.ui.SquareGridByWidthLayout>
-</RelativeLayout>
+</FrameLayout>
