@@ -11,8 +11,10 @@ import android.view.View;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
 import java.util.Random;
+import java.util.Set;
 import org.ligi.axt.AXT;
 import org.ligi.blueblab.App;
 import org.ligi.blueblab.R;
@@ -98,14 +100,27 @@ public class FindPeerActivity extends AppCompatActivity {
 
                 avatarControllers[CENTER][CENTER].user = App.userModel.toUser();
 
-                userPositions.clear();
-                userObjects.clear();
+                Set<String> allVisibleUserIds=new HashSet<>();
 
                 for (final User user : App.transporter.getVisibleUsers()) {
+                    allVisibleUserIds.add(user.getId());
                     if (!userPositions.containsKey(user.getId())) {
                         userPositions.put(user.getId(), getRandomPoint());
                         userObjects.put(user.getId(), user);
                     }
+                }
+
+                Set<String> toRemove=new HashSet<>();
+
+                for (final String s : userObjects.keySet()) {
+                    if (!allVisibleUserIds.contains(s)) {
+                        toRemove.add(s);
+                    }
+                }
+
+                for (final String s : toRemove) {
+                    userPositions.remove(s);
+                    userObjects.remove(s);
                 }
 
                 for (final Map.Entry<String, Point> entry : userPositions.entrySet()) {

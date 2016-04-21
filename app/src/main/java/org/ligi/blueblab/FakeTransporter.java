@@ -11,19 +11,35 @@ public class FakeTransporter implements Transporter {
 
     private final EntropySource entropySource;
 
+    final ArrayList<User> users = new ArrayList<>();
+
     public FakeTransporter(final Context context, final EntropySource entropySource) {
         this.entropySource = entropySource;
+
+        for (int i = 0; i < entropySource.getRandom().nextInt(7); i++) {
+            addRandomUser();
+        }
+
+    }
+
+    private void addRandomUser() {
+        users.add(new User(UUID.randomUUID().toString(),
+                           entropySource.getRandomName(),
+                           entropySource.getRandomMood(),
+                           entropySource.getRandom().nextInt(Integer.MAX_VALUE)));
     }
 
     @Override
     public List<User> getVisibleUsers() {
-        final ArrayList<User> users = new ArrayList<>();
-        for (int i = 0; i < entropySource.getRandom().nextInt(7); i++) {
-            users.add(new User(UUID.randomUUID().toString(),
-                               entropySource.getRandomName(),
-                               entropySource.getRandomMood(),
-                               entropySource.getRandom().nextInt(Integer.MAX_VALUE)));
+
+        for (int i=0;i<entropySource.getRandom().nextInt(3);i++) {
+            if (entropySource.getRandom().nextBoolean() && !users.isEmpty()) {
+                users.remove(entropySource.getRandom().nextInt(users.size()));
+            } else {
+                addRandomUser();
+            }
         }
+
         return users;
     }
 
